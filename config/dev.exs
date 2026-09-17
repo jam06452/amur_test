@@ -9,7 +9,14 @@ import Config
 config :amur_test1, AmurTest1Web.Endpoint,
   # Binding to loopback ipv4 address prevents access from other machines.
   # Change to `ip: {0, 0, 0, 0}` to allow access from other machines.
-  http: [ip: {127, 0, 0, 1}],
+  http: false,
+  url: [scheme: "https", host: "localhost", port: 4001],
+  https: [
+    port: 4001,
+    cipher_suite: :strong,
+    keyfile: "priv/cert/selfsigned_key.pem",
+    certfile: "priv/cert/selfsigned.pem"
+  ],
   check_origin: false,
   code_reloader: true,
   debug_errors: true,
