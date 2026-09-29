@@ -2,6 +2,6 @@ defmodule AmurTest1Web.PageController do
   use AmurTest1Web, :controller
 
   def home(conn, _params) do
-    render(conn, :home)
+    render(conn, :home, providers: Keyword.keys(Application.fetch_env!(:amur, :providers)))
   end
 end

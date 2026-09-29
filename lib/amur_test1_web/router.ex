@@ -14,6 +14,11 @@ defmodule AmurTest1Web.Router do
     plug :accepts, ["json"]
   end
 
+  scope "/auth", alias: false do
+    pipe_through :browser
+    forward "/", Amur.Router
+  end
+
   scope "/", AmurTest1Web do
     pipe_through :browser
 
